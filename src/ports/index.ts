@@ -6,12 +6,12 @@ import type { ContextReceipt } from "../domain/receipt.js";
 import type { SearchHit, SearchQuery } from "../domain/search.js";
 import type { SlurpCursor, SlurpResult } from "../domain/slurp.js";
 
-export class ReceiptStoreError extends Schema.TaggedErrorClass<ReceiptStoreError>()(
+export class ReceiptStoreError extends Schema.TaggedError<ReceiptStoreError>()(
   "ReceiptStoreError",
   {
     operation: Schema.String,
     message: Schema.String,
-    cause: Schema.optional(Schema.Defect()),
+    cause: Schema.optionalKey(Schema.Defect()),
   }
 ) {}
 
@@ -34,7 +34,7 @@ export class ReceiptStore extends Context.Service<
   ReceiptStoreApi
 >()("@content-grill/ReceiptStore") {}
 
-export class ContextSearchError extends Schema.TaggedErrorClass<ContextSearchError>()(
+export class ContextSearchError extends Schema.TaggedError<ContextSearchError>()(
   "ContextSearchError",
   {
     operation: Schema.String,
@@ -59,12 +59,12 @@ export class ContextSearch extends Context.Service<
   ContextSearchApi
 >()("@content-grill/ContextSearch") {}
 
-export class SlurpSourceError extends Schema.TaggedErrorClass<SlurpSourceError>()(
+export class SlurpSourceError extends Schema.TaggedError<SlurpSourceError>()(
   "SlurpSourceError",
   {
     source: Schema.String,
     message: Schema.String,
-    cause: Schema.optional(Schema.Defect()),
+    cause: Schema.optionalKey(Schema.Defect()),
   }
 ) {}
 

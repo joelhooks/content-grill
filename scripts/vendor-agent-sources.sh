@@ -61,7 +61,7 @@ EOF
 # Match package.json pins where noted; Effect vendored at latest rc for source-first v4 work.
 # effect-smol is archived — V4 lives in Effect-TS/effect only. Do not re-add it.
 clone_source Effect-TS effect https://github.com/Effect-TS/effect.git effect@4.0.0-rc.110 \
-  "Effect v4 monorepo (rc.110). package.json pins beta.99 — bump ref when pins move."
+  "Effect v4 monorepo matching package.json effect@4.0.0-rc.110."
 clone_source kitlangton effect-solutions https://github.com/kitlangton/effect-solutions.git main \
   "Idiomatic Effect patterns guide (Kit Langton)."
 clone_source statelyai xstate https://github.com/statelyai/xstate.git xstate@5.32.5 \

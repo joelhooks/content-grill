@@ -12,7 +12,7 @@ Schema-first context plane + CLI under `joelhooks/content-grill`. Agents slurp w
 
 ## Finish line
 
-1. **`joelhooks/content-grill` repo** exists: Effect `4.0.0-beta.99`, XState `5.32.5`, TS 7 strict, Oxlint/Ultracite/Oxfmt.
+1. **`joelhooks/content-grill` repo** exists: Effect `4.0.0-rc.110`, XState `5.32.5`, TS 7 strict, Oxlint/Ultracite/Oxfmt.
 2. **Effect Schema package** defines validated contracts for receipts, sources, slurp state, privacy tiers, CLI envelopes, operator config, and (reserved) topic prompts. Every CLI boundary decodes/encodes through schema.
 3. **`content-grill` CLI** ships: `doctor`, `config show`, `slurp status`, `slurp run [--source …]`, `context search <query>`, `context recent [--since …]`. Non-interactive JSON envelopes by default.
 4. **Two v1 slurpers** run on the configured host at the configured cadence (default ~5 min): **Brain index** + **X timeline archive**. Auth via env / secret store. `context search` returns within the configured latency budget; `doctor` proves it.

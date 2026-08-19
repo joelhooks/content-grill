@@ -43,4 +43,4 @@ Adapters redact before write.
 
 ## Stack
 
-Effect `4.0.0-beta.99`, XState `5.32.5`, TypeScript `7.0.2`, Node `24+`.
+Effect `4.0.0-rc.110`, XState `5.32.5`, TypeScript `7.0.2`, Node `24+`.

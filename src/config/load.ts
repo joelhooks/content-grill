@@ -24,7 +24,7 @@ const ENV_X_HANDLE = "CONTENT_GRILL_X_HANDLE";
 const ENV_X_OAUTH_PREFIX = "CONTENT_GRILL_X_OAUTH_ENV_PREFIX";
 const ENV_GMAIL_MAILBOX = "CONTENT_GRILL_GMAIL_MAILBOX";
 
-export class ConfigLoadError extends Schema.TaggedErrorClass<ConfigLoadError>()(
+export class ConfigLoadError extends Schema.TaggedError<ConfigLoadError>()(
   "ConfigLoadError",
   {
     message: Schema.String,

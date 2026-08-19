@@ -38,6 +38,8 @@ export default defineConfig({
     // Conflicts with anti-slop (unknown is an evidence discard; SAFETY covers XState phantoms).
     "typescript/use-unknown-in-catch-callback-variable": "off",
     "typescript/no-unsafe-type-assertion": "off",
+    // Effect Schema.TaggedError(...) looks like a throw to unicorn.
+    "unicorn/throw-new-error": "off",
 
     "anti-slop/no-chained-type-assertions": "error",
     "anti-slop/no-conditional-empty-object-spread": "error",

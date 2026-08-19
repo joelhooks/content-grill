@@ -13,7 +13,7 @@ Never generate publishable copy. Output is `TopicPrompt` / `TopicPromptBatch` on
 Pins live in `package.json`. Repo wins; note drift, do not silently migrate.
 
 - Node `>=24`, npm (not Bun)
-- Effect `4.0.0-beta.99` + `@effect/platform-node` same pin
+- Effect `4.0.0-rc.110` + `@effect/platform-node` same pin
 - XState `5.32.5`
 - TypeScript `7.0.2` Pocock-strict
 - Oxlint `1.78.0` + Ultracite + Oxfmt + anti-slop in `tools/oxlint/anti-slop/`
