@@ -1,0 +1,19 @@
+---
+title: "Ship v1 Slurpers (Brain + X)"
+type: "step"
+kind: "task"
+interaction: "HITL"
+status: "open"
+assignee: ""
+parent: "./content-grill-brief.svx"
+blockers: ["./scaffold-content-grill-repo.svx", "./decide-slurp-scheduler.svx"]
+created_at: "2026-08-19"
+---
+
+# Ship v1 Slurpers (Brain + X)
+
+Implement Brain fleet indexer and X timeline archiver, wire 5-min scheduler, and prove `context search` / `context recent` / `doctor` on the configured host.
+
+## Step
+
+Resolved when doctor reports fresh cursors, search latency &lt;2s on sample queries, and no secrets in the index store.

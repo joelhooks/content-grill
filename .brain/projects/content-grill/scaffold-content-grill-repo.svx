@@ -1,0 +1,25 @@
+---
+title: "Scaffold content-grill Repo"
+type: "step"
+kind: "task"
+interaction: "HITL"
+status: "open"
+assignee: ""
+parent: "./content-grill-brief.svx"
+blockers: ["./decide-local-storage-backend.svx"]
+created_at: "2026-08-19"
+---
+
+# Scaffold content-grill Repo
+
+Create private `joelhooks/content-grill` with fleet stack defaults, schema package skeleton, CLI entrypoint stub, skill stub, and CI hooks mirroring jc-slack.
+
+## Step
+
+Resolved when repo exists on GitHub, local checkout on the configured host, `npm run typecheck` passes on empty schemas + CLI `--help`, and brief Notes link the repo URL.
+
+Execution authorized once blockers close (Joel, 2026-08-19: infra-first — scaffold follows schema + storage decisions).
+
+## Result (2026-08-19)
+
+Repo on GitHub, schema prototype, CLI stub, skill, VISION/AGENTS/Brain surface landed. **Open:** storage backend before calling scaffold fully closed.

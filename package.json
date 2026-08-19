@@ -1,0 +1,44 @@
+{
+  "name": "content-grill",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Schema-first context plane and topic grill — slurp work signals, search fast, brainstorm topics without generating copy.",
+  "bin": {
+    "content-grill": "bin/content-grill"
+  },
+  "type": "module",
+  "scripts": {
+    "prepare": "lefthook install",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "ultracite check",
+    "format": "oxfmt --check .",
+    "format:write": "oxfmt .",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run lint && npm run format && npm test",
+    "content-grill": "node --import tsx src/cli.ts"
+  },
+  "dependencies": {
+    "@effect/platform-node": "4.0.0-beta.99",
+    "effect": "4.0.0-beta.99",
+    "xstate": "5.32.5"
+  },
+  "devDependencies": {
+    "@effect/vitest": "4.0.0-beta.99",
+    "@oxlint/plugins": "1.78.0",
+    "@types/node": "24.13.3",
+    "lefthook": "2.1.10",
+    "oxfmt": "0.59.0",
+    "oxlint": "1.78.0",
+    "oxlint-tsgolint": "7.0.2001",
+    "tsx": "^4.20.6",
+    "typescript": "7.0.2",
+    "ultracite": "7.9.4",
+    "vitest": "^4.1.10"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "allowScripts": {
+    "lefthook@2.1.10": true
+  }
+}

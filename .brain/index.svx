@@ -1,0 +1,26 @@
+---
+title: "Content Grill Brain Index"
+type: "index"
+status: "active"
+created_at: "2026-08-19"
+privacy: "public"
+---
+
+# Project Brain
+
+Repo-local Brain for `joelhooks/content-grill`. Rendered index is programmatic via pi-notes when wired.
+
+## Planning (canonical)
+
+- [Content Grill brief](./projects/content-grill/content-grill-brief.svx)
+- [Effect Schema v1 design](./projects/content-grill/effect-schema-v1-design.svx)
+
+Run ready scan:
+
+```bash
+python3 ~/.claude/skills/grill-master/scan.py .brain/projects/content-grill
+```
+
+## Resources
+
+- [Schema review notes](./resources/schema-review.svx)

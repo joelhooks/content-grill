@@ -1,0 +1,39 @@
+---
+title: "Decide Effect Schema Core"
+type: "step"
+kind: "grilling"
+interaction: "HITL"
+status: "closed"
+assignee: "cursor (configured host, operator session, 2026-08-19)"
+parent: "./content-grill-brief.svx"
+blockers: []
+created_at: "2026-08-19"
+closed_at: "2026-08-19"
+---
+
+# Decide Effect Schema Core
+
+Lock the v1 Effect Schema model for the content-grill context plane: shared base types, per-source receipt unions, slurp lifecycle records, privacy tiers, and CLI JSON envelopes. Output is a schema design asset agents can implement without reinterpretation.
+
+## Step
+
+Grill Joel on:
+
+- universal `ContextReceipt` shape vs discriminated union per source
+- required vs optional fields on every receipt (summary, index_text, occurred_at, refs)
+- `PrivacyTier` levels and redaction rules at index time
+- `SlurpCursor` / `SlurpRun` / XState event alignment
+- reserved `TopicPrompt` shape (grill output, no body copy)
+- CLI envelope pattern (`ok`, `command`, `result`, `next_actions`) compatibility with jc-slack
+
+Resolved when schema modules and field glossary are written to an asset file and Joel confirms v1 can implement without another schema pass.
+
+## Result (2026-08-19)
+
+**Locked:** hexagonal ports/adapters; `ContextReceipt` as Effect `Schema.TaggedUnion` (`Brain`, `XPost`, `AgentSession`, + v2 variants); three privacy tiers with adapter-time redaction; `TopicPromptBatch.generatesCopy: false`; XState slurp machine aligned to `SlurpCursor.status`.
+
+**Prototype:** `joelhooks/content-grill` — `src/domain/*`, `src/ports/index.ts`, `src/machines/slurp-run.ts`; 5 schema tests green; CLI `doctor` stub.
+
+**Asset:** [Effect Schema v1 Design](./effect-schema-v1-design.svx)
+
+**Deferred:** string maxLength filters (Effect v4 filter API pass); full CLI envelopes wired to store.

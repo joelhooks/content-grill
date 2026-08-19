@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "dataDir": "/absolute/path/to/content-grill-data",
+  "brainRoots": ["/absolute/path/to/.brain"],
+  "slurpHost": "your-scheduler-host",
+  "slurpIntervalSeconds": 300,
+  "searchLatencyMsBudget": 2000,
+  "sources": {
+    "brain": { "enabled": true },
+    "x_post": {
+      "enabled": true,
+      "handle": "yourhandle",
+      "oauthEnvPrefix": "x_yourhandle"
+    },
+    "gmail": {
+      "enabled": false,
+      "mailbox": "you@example.com"
+    }
+  },
+  "defaultQueryPrivacy": ["work", "public"]
+}

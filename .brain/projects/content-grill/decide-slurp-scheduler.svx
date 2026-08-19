@@ -1,0 +1,19 @@
+---
+title: "Decide Slurp Scheduler on Flagg"
+type: "step"
+kind: "grilling"
+interaction: "HITL"
+status: "open"
+assignee: ""
+parent: "./content-grill-brief.svx"
+blockers: []
+created_at: "2026-08-19"
+---
+
+# Decide Slurp Scheduler on Flagg
+
+Choose how ~5-minute slurp cadence runs on the configured host: launchd plist, Inngest cron, joelclaw wake, or hybrid. Must expose health to `content-grill doctor` and survive reboot.
+
+## Step
+
+Grill Joel with failure-mode scenarios (missed tick, overlapping runs, stale cursor). Resolved when scheduler choice and ops receipt path are recorded.

@@ -1,0 +1,13 @@
+# Pre-commit gate: typecheck + anti-slop lint + format + tests.
+# Install: npx lefthook install  (also via npm prepare)
+pre-commit:
+  parallel: true
+  commands:
+    typecheck:
+      run: npm run typecheck
+    lint:
+      run: npm run lint
+    format:
+      run: npm run format
+    test:
+      run: npm test

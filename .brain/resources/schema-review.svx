@@ -1,0 +1,29 @@
+---
+title: "Schema Review Surface"
+type: "resource"
+status: "active"
+created_at: "2026-08-19"
+privacy: "public"
+tags:
+  - effect
+  - schema
+  - content-grill
+---
+
+# Schema Review Surface
+
+Design asset: [Effect Schema v1 Design](../projects/content-grill/effect-schema-v1-design.svx)
+
+Prototype modules (source of truth in git):
+
+| Module | Path |
+| --- | --- |
+| Receipt union | `src/domain/receipt.ts` |
+| Privacy + sources | `src/domain/primitives.ts` |
+| Slurp state | `src/domain/slurp.ts` |
+| Topic prompts | `src/domain/topic.ts` |
+| Search | `src/domain/search.ts` |
+| Ports | `src/ports/index.ts` |
+| Slurp machine | `src/machines/slurp-run.ts` |
+
+Validation: `npm test` (5 tests).

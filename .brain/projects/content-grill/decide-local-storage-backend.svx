@@ -1,0 +1,19 @@
+---
+title: "Decide Local Storage Backend"
+type: "step"
+kind: "grilling"
+interaction: "HITL"
+status: "open"
+assignee: ""
+parent: "./content-grill-brief.svx"
+blockers: []
+created_at: "2026-08-19"
+---
+
+# Decide Local Storage Backend
+
+Choose v1 persistence for the context plane on the configured host: SQLite/libsql, plain JSONL + side index, or Typesense (link-ingest precedent). Must satisfy &lt;2s search for brain + X receipts at v1 scale.
+
+## Step
+
+Grill Joel on tradeoffs with schema asset in hand. Resolved when backend choice + directory layout + migration story are recorded.

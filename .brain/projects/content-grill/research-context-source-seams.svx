@@ -1,0 +1,21 @@
+---
+title: "Research Context Source Seams"
+type: "step"
+kind: "research"
+interaction: "AFK"
+status: "open"
+assignee: ""
+parent: "./content-grill-brief.svx"
+blockers: []
+created_at: "2026-08-19"
+---
+
+# Research Context Source Seams
+
+Inventory how v1 and v2 sources are accessed today: Brain paths, `joelclaw sessions search`, x-api OAuth, gog gmail search, Granola executor MCP, jc-slack context/search. For each: auth path, rate limits, sensible slurp granularity, privacy risks, and existing fleet docs.
+
+## Step
+
+Produce a linked asset listing source seams with v1/v2 tags and recommended receipt shape hints. No implementation.
+
+Resolved when asset exists and brief Latent/Notes can cite it.

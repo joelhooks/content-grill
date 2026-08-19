@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.wzrrd/
+.env*
+*.log
+.DS_Store
+data/
+.agent_sources/

@@ -1,0 +1,29 @@
+---
+title: "Effect Schema v1 Design"
+type: "asset"
+parent: "./decide-effect-schema-core.svx"
+created_at: "2026-08-19"
+privacy: "public"
+---
+
+# Effect Schema v1 Design
+
+Canonical implementation: `github.com/joelhooks/content-grill` → `src/domain/`, `src/ports/`, `src/machines/`.
+
+## Locked decisions (Joel, 2026-08-19)
+
+- **Hexagonal** — domain schemas at center; `ReceiptStore`, `ContextSearch`, `SlurpSource` as Effect `Context.Service` ports; adapters per source.
+- **ContextReceipt** — `Schema.TaggedUnion` with `_tag` + mirrored `source` field: `Brain`, `XPost`, `AgentSession`, plus v2-reserved `GmailThread`, `SlackMessage`, `GranolaMeeting`, `GitActivity`.
+- **PrivacyTier** — `operator` | `work` | `public`; default query = work + public; adapters redact before write.
+- **TopicPrompt** — title, whyNow, receiptIds, digDeeperQuestion; `TopicPromptBatch.generatesCopy` literal `false`.
+- **Slurp lifecycle** — `SlurpCursor` + `SlurpRun` schemas; XState machine in `src/machines/slurp-run.ts` maps to cursor `status`.
+
+## v1 scope
+
+Slurpers: `brain`, `x_post` only. CLI stub: `doctor`, `slurp status` (store/adapters not wired).
+
+## Follow-ups
+
+- String length filters via Effect v4 filter API (bounds documented as constants today).
+- Storage adapter (blocked step: Decide Local Storage Backend).
+- Scheduler (blocked step: Decide Slurp Scheduler on Flagg).

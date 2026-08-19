@@ -1,0 +1,61 @@
+---
+title: "Content Grill"
+type: "brief"
+status: "active"
+created_at: "2026-08-19"
+privacy: "public"
+---
+
+# Content Grill
+
+Schema-first context plane + CLI under `joelhooks/content-grill`. Agents slurp work/progress signals from Brain, X, sessions, and (later) inbox, Granola, and Slack into a fast local index. A **content grill** session (grill-me + grill-with-docs) uses that index to name **topics worth digging into** — never post drafts, scripts, or generated copy.
+
+## Finish line
+
+1. **`joelhooks/content-grill` repo** exists: Effect `4.0.0-beta.99`, XState `5.32.5`, TS 7 strict, Oxlint/Ultracite/Oxfmt.
+2. **Effect Schema package** defines validated contracts for receipts, sources, slurp state, privacy tiers, CLI envelopes, operator config, and (reserved) topic prompts. Every CLI boundary decodes/encodes through schema.
+3. **`content-grill` CLI** ships: `doctor`, `config show`, `slurp status`, `slurp run [--source …]`, `context search <query>`, `context recent [--since …]`. Non-interactive JSON envelopes by default.
+4. **Two v1 slurpers** run on the configured host at the configured cadence (default ~5 min): **Brain index** + **X timeline archive**. Auth via env / secret store. `context search` returns within the configured latency budget; `doctor` proves it.
+5. **Skill stub** in-repo documents query API + composition with `grill-master`, `grill-me`, and `grill-with-docs`.
+
+Maintained by: slurp scheduler + `doctor` on the configured host; schema/version bumps in this repo.
+
+## Vocabulary
+
+- **Content grill** — HITL brainstorm that names dig-deeper **topics** from slurped context; composes grill-me / grill-with-docs; **never generates publishable copy**.
+- **Context plane** — local indexed store of slurped receipts queryable by agents in under 2s (budget from config).
+- **Context receipt** — one indexed unit in the plane (brain note, tweet, session excerpt, etc.) with provenance, privacy tier, and searchable text.
+- **Slurp** — bounded ingest job that refreshes one source into the plane on a cadence or on demand.
+- **Dig deeper** — live spar after a topic lands; the operator workshops the angle.
+- **Topic prompt** — schema output of a grill session: title, why-now, receipt refs, one sparring question — **no body copy**.
+- **Port** — domain-facing Effect service interface (`ReceiptStore`, `ContextSearch`, `SlurpSource`); adapters implement, domain never imports I/O.
+- **Adapter** — source-specific slurp implementation; maps external API → `ContextReceipt` variant; assigns `PrivacyTier` before write.
+- **Operator config** — `~/.config/content-grill/config.json` + `CONTENT_GRILL_*` env; paths, host label, cadence, source toggles. Never tokens.
+
+## Notes
+
+- Domain: personal operator tooling. Planning brief lives in `.brain/projects/content-grill/`.
+- Skills: `grill-master`, `grill-me`, `grill-with-docs`, `effect-ts`, `session-search` (and X/Slack tooling when those adapters exist).
+- Standing calls: **infra before skill**; **schema first**; **no generated content**; Slack stream + full inbox/Granola slurp are **not v1**; **hexagonal ports/adapters**; **Effect Schema union** for receipts; **three privacy tiers**; **host paths in config, not the repo**.
+- Execution authorization: **not granted** for slurpers until storage + scheduler steps close.
+
+## Decision ledger
+
+- [Decide Effect Schema Core](./decide-effect-schema-core.svx) — hexagonal + TaggedUnion receipts + 3 privacy tiers locked; design asset at [Effect Schema v1 Design](./effect-schema-v1-design.svx).
+
+## Latent
+
+- Slack socket stream into the plane.
+- Inbox index (mailbox from config) — OAuth via env; full-text index design TBD.
+- Granola meeting slurp — batch vs cadence from config.
+- Typesense vs SQLite vs libsql for the plane.
+- Inngest vs launchd vs other for the scheduler on the configured host.
+- Topic-prompt ranking / "3 dig deeper" selection — grill layer, post-v1 CLI.
+- Cross-machine plane replication — single-host v1.
+
+## Out of scope
+
+- Auto-posting to X or YouTube; draft tweets, scripts, titles, thumbnails, or SEO copy.
+- Engagement pods, growth hacks, or algo-gaming automation.
+- Durable storage of full Slack/email/transcript bodies beyond bounded receipt summaries without explicit privacy review.
+- Public indexing of operator-tier context.
