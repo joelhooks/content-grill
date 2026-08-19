@@ -44,3 +44,10 @@ Adapters redact before write.
 ## Stack
 
 Effect `4.0.0-rc.110`, XState `5.32.5`, TypeScript `7.0.2`, Node `24+`.
+
+## Credits
+
+- [Dillon Mulroy](https://github.com/dmmulroy) — [anti-slop](https://github.com/dmmulroy/anti-slop) Oxlint rules vendored under `tools/oxlint/anti-slop/`.
+- [Kit Langton](https://github.com/kitlangton) — [effect-solutions](https://github.com/kitlangton/effect-solutions) idioms mirrored in `.agent_sources/` and the opt-in Effect lint pack.
+
+Writing discipline for Brain notes and docs: [`BRAIN.md`](./BRAIN.md) (unslop principles embedded there).

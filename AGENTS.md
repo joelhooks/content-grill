@@ -2,6 +2,8 @@
 
 Repo law. Read [`VISION.md`](./VISION.md) before substantial work. Pi also loads [`.pi/APPEND_SYSTEM.md`](./.pi/APPEND_SYSTEM.md).
 
+Brain notes and docs follow unslop — principles are in [`BRAIN.md`](./BRAIN.md), not a separate skill invocation.
+
 Planning brief: [`.brain/projects/content-grill/content-grill-brief.svx`](./.brain/projects/content-grill/content-grill-brief.svx)
 
 ## Topics only
